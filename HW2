@@ -1,0 +1,297 @@
+//---------------------------------------------------------
+void draw()
+{ 
+  background( 255 ,255,255) ; // white 
+  fill( 0 , 0 , 0 ) ; 
+  String errors = Assessment2.getLastErrorMessage(); 
+  if( errors != null ) 
+  { 
+    text(errors, 20, 50);
+  }  
+ int cm = Assessment2.getCurrnetMarks() ; 
+ 
+  text( " Total Marks so far = " + cm +"%", 20  , height - 30 ); 
+} 
+//---------------------------------------------------------
+   /**
+     * 1.  Write a public function called HW2A which takes in a float
+     argument called seconds, and returns a float. This function should
+     convert the argument in seconds into fractions of minutes, using the
+     equation minutes = seconds ÷ 60
+    */
+    public float HW2A( float seconds ) 
+    {
+      return seconds/60 ; 
+    } 
+    //---------------------------------------------------------
+    /* 
+    2. Write a procedure/function called HW2B with no arguments; 
+    it should then count from 1 to 5942 can call Assessment2.loopNo (n )
+    with the number of the count (i.e. Assessment2.loopNo ( count )).  
+    The loop should NEVER see the unlucky number 13. At the end, 
+    it should call Assessment2.loopEnd()once and only once
+  */ 
+    public void HW2B(int array) 
+    { 
+      
+      int n =13;
+       int a = 1-5942 ; 
+       noLoop();
+       Assessment2.loop( a ) ; 
+       Assessment2.loopEnd();
+    } 
+    
+     /* 
+    3 It's common to have to filter out bad information returned from a sensor.
+    In our case, the sensor returns a body temperature. 
+    Write a function called HW2C which takes in an array of 
+    ints (integers corresponding to readings), and sets to 32 all
+    readings which are greater than 45. The function should return 
+    the number of items it has changed.
+
+    */
+    public int HW2C( int [ ]recordings ) 
+    {
+    int temp = 45;
+     int counter = 0 ; 
+     for(int i = 0; i < recordings.length; i++) 
+       { 
+         if (recordings[i] >= temp)
+           {
+              counter++;
+              recordings[i]=32;
+           
+           }
+       }
+
+     return counter;  
+    }
+    /* 
+     4.   Write a function called HW1D which has two arguments: a float, 
+    temperature, and a boolean called isChild (true if the subject
+    is a child, false otherwise). This function returns false (sick/unwell)
+    if the temperature is outside the normal temperature range for the 
+    subject (32-38 for an adult, 33-37 for a child), and true otherwise
+    (subject is well).
+    */
+    public boolean HW2D( float temperature , boolean isChild )
+    { 
+      temperature=32;
+       return false ; 
+    }
+    /* 
+   5  Write a function called HW2E. This takes an int array of student 
+    ID numbers (eg. 14234, and a second int argument, findID. The function 
+    should search the array for the specified ID, and returns its location 
+    in the array. So, with arguments {11,22,33,44,55,66,112}  and 44,
+    it should return 3.   If the search ID is not present in the array,
+    then return -1.
+    */
+   public int HW2E( int array[]  ,  int studentId  ) {
+    for (int i = 0; i < array.length; i++) {
+        if (array[i] == studentId) return i;
+    }
+    return -1;
+}
+     /* 
+    6.  These days it’s common to find a criminal by finding a match of their
+    DNA with a ‘computer database’. Oddly DNA is a code like computer
+    code but the code is written in 4 ‘base pairs’ called  (G,T,A,C).
+    We can store DNA on a computer by decoding it and storing it
+    in an array ( G=0,T=1,A=2,C=3 ) so a DNA sample can be stored in an
+    integer array int DNA[] = { 1,3,2,1,1,2,0,2,3,3,3 } ; except much much 
+    longer (millions of base pairs make up a single gene). Write a function 
+    called HW2F called which takes two DNA arrays. One is called sample the
+    other criminal. If the sequences match then return a boolean true 
+    ( found criminal match) or  false ( not this sample).So
+    
+a.  int sample1[]  = { 1,2,1,3,2,1,0,2,2,1,1 }
+b.  int criminal[] = { 0,2,1,3,2,1,2,2,2,1,1} 
+c.  int  sample2[] = { 0,2,1,3,2,1,2,2,2,1,1}
+d.   HW2F ( sample1 , criminal ) Should return false. 
+e.  HW2F ( sample2 , criminal ) should return true.(match)
+f.  Note DNA samples are always the same length 
+
+    */
+   public  boolean HW2F( int sample[] , int criminal[ ] ) 
+    { 
+
+
+        for (int i = 0; i < sample.length; i++) {
+            if (sample[i] != criminal[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+     /* 
+   7. The function HW2G Is the work of a student writing a function to count 
+   the number of letters in an essay not counting spaces. As you might remember
+   “string”.length() returns the length of the string so, the student came 
+   up with a plan. Split the text up into short strings of words (done
+   externally for you).  This will make all spaces look like this “  “ 
+   or this “      “. The student discovered the trim method (normally this 
+   makes  “  string “.trim() into this “string”. It also turns “   ” into “”
+   i.e. a string with no length. So run through the array counting all the 
+   string lengths except those which are space, add them up and behold 
+   ( as the student said to me) the length of words spaces. Problem is the 
+   code ‘compiles’ but doesn’t produce the right results. Can you spot the 
+   three (deliberate) errors? Correct them in your version.
+   */
+   public int HW2G( String words[ ] ) 
+   { 
+         int numberOfLetters = 0 ; 
+        int i = 0 ; //0 
+       while( ++i < words.length -1  );
+       { 
+         String wrd = words[i].trim(); // strip white space. 
+       
+         if( ! wrd.equals("") );
+         { 
+            numberOfLetters = numberOfLetters + wrd.length(); 
+         } 
+          
+       } 
+       return numberOfLetters; 
+    } 
+     /* 
+    8.  Write a function HW2H which has 3 arguments, each of which is a string.
+   The program should return 1 if the first argument is the longest. 
+   It should return 2 if the second argument is longer than ether of
+   the others and 3 if the final argument is longer than the first two.
+   If no string is longer than the others, it should return 4..  
+   You can check for String length with equals message as in “BOB”.length()
+   returns 3 and  String s = “Cyborg”;s.length() returns 6.
+
+   */
+   /// YOU PROVIDE the function public int HW2H( String a, String b , String c )`
+     public boolean HW2H( String words )
+
+  { 
+
+    if( words.contains("B") && words.contains("me"))return true ;
+
+    return false ; 
+
+  }
+   
+    
+     /* 
+     9. This question involves writing two functions. 
+a.  The interest on a loan is currently 2.4% (0.024). If you take a £9000 
+    loan to day you will pay 9000 * 0.024 ( £216) for a year. Start by writing a 
+    function called calculateInterest which takes the loanAmount 
+    (which can be any number not just 9000) as a float and a second argument 
+    interestRate (also float can be any faction) which is the interest rate 
+    for the loan. It should return a float which is the Interest (£216 in the 
+    example above).
+b.  When calculateInterest works write a function called HW2I. (I=capital i)
+    This takes 2 float arguments. The original loan amount (float) and years 
+    (an int) which is the number of years the loan will operate over (say 35). 
+    Each year the interest is calculated (via a call to the calculateInterest 
+    function). Interest is then added to the loan amount. This value (loan+
+    interest) is the new loan amount. Write the function HW2I.  Don’t forget to
+    test it yourself to make sure it works correctly. Here is the pseudo code. 
+    
+    To HW2I ( loan, intreastRate , years )
+     Repeat with year = 1 to years 
+           adjustedLoan = loan + calculateInterest( loan , intreastRate )
+           loan = adjustedLoan
+    end repeat 
+     return loan 
+
+    */public float calculateInterest(float loanAmount, float interestRate) {
+    float interest = (loanAmount * interestRate);
+    {
+        return interest;
+    }
+}
+
+public float HW2I(float loanAmount, float interestRate, int years) {
+    for (int i = 0; i < years; i++) {
+        float newLoanAmount = loanAmount + calculateInterest(loanAmount, interestRate);
+        loanAmount = newLoanAmount;
+    }
+    return loanAmount;
+}
+    // YOU PROVIDE public float calculateInterest
+    
+   // YOU PROVIDE  public float HW2I 
+     /* 
+     10.  Back to DNA. It’s common for a system to begin with fragments of raw DNA. 
+    These are joined together in a kind of one dimensional jigsaw puzzle. 
+    One common operation for a machine processing DNA arrays ( see Q7) is
+    to take two smaller DNA strands and join them together. 
+    So { 1,0,2,3 } and { 2,3,3,2} becomes a new array of { 1,0,2,3,2,3,3,2}
+    Write a function HW2J which accepts two int arrays as arguments and 
+    creates a new array which is as long as both arugments put together. 
+    It should then copy the first mthen the second array values to the new array. 
+    The function should return the new array. Note arguments can be of 
+    different lengths . 
+
+    */
+    // YPU PROVIDE HW2J
+    
+    /*11. Write the function called HW2K which takes an array of int as a parameter. 
+    Find the second largest value in the array. For example if the array is  
+    { 50,40,60,20,10 } then the second largest number is 50.
+    */
+    // put  HW2K here 
+    public int HW2K (int array[])
+    {
+    int highest = Integer.MIN_VALUE;
+    int secondHighest = Integer.MIN_VALUE;
+
+   
+    for (int i = 0; i < array.length; i++) {
+
+      
+        if (array[i] > highest) {
+
+            
+            secondHighest = highest;
+
+            
+            highest = array[i];
+        } else if (array[i] > secondHighest)
+            
+            secondHighest = array[i];
+    }
+
+  
+    return secondHighest;
+}
+    
+    /*
+    12 Find the documentation for the class PVector in processing and 
+    read it. In Processing PVector v = PVector.random2D(); will create
+    the instance of a random point in space.  Write a public function
+    which is called HW2L which returns an array which has 10000 PVectors
+    in it. Note the location of the PVectors does not matter. 
+    You might try drawing the array to check your method is running. 
+*/ 
+    // put HW2L here 
+    
+/*
+    13  Create a class called HW2MDate, which holds three numbers. 
+    One for the day, one for the month and one for the year. Create a 
+    method called HW2M, which takes three numbers (day, month and year) 
+    and returns an instance of your date object. Note January will be 
+    passed in as 1, December as 12 etc.  Your method should not return an 
+    object or instance of H2NDate if any of the arguments don't make sense. 
+    for example HW2M( -3 , 3, 1970 ) should return null because NO date can 
+    be negative. Equally HW2M ( 3, 19, 1970 ) should return null because
+    there is no 19th month in the year. Negative years are OK. It’s OK
+    to assume leap years DON'T Exist. Just to make this difficult Remember
+    different months have different numbers of days. 
+    https://www.timeanddate.com/calendar/months/
+
+    [ 15] 
+ */ 
+   //  class HW2MDate HERE 
+   
+    ///public  heere HW2MDate HW2M(  int day , int month ,int year   )
+    
+    
+    
+   
