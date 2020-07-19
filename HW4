@@ -1,0 +1,158 @@
+//---------------------------------------------------------
+void draw()
+{ 
+  background( 255, 255, 255) ; // white 
+  fill( 0, 0, 0 ) ; 
+  String errors = Assessment4.getLastErrorMessage(); 
+  if ( errors != null ) 
+  { 
+    text(errors, 20, 50);
+  }  
+  int cm = Assessment4.getCurrnetMarks() ; 
+
+  text( " Total Marks so far = " + cm +"%", 20, height - 30 );
+} 
+//---------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q1 
+ */
+public float HW4A( float seconds ) 
+{
+  return seconds/(24*60*60);  
+} 
+//---------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q2. 
+ */
+
+public String HW4B( String  fromServer  )
+{ 
+  return "UNKNOWN";
+}
+//---------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q3
+ */
+
+public float HW4C( ArrayList<Float> list)
+{ 
+  return list.get(1);
+}
+//---------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q4. 
+ */
+
+public String HW4D( String words[ ])
+{ 
+  String result = String.join(" ", words) + " ";
+
+  return result;
+}
+
+//---------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q5. 
+ */
+
+public int HW4E( int numbers[ ] )
+{ 
+  int sum = 0;
+  for (int value : numbers){
+  sum+=value;
+}
+return sum;
+}
+//---------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q6. 
+ */
+
+public boolean HW4F( String fileRating, int age, boolean hasAdult ) 
+{ 
+  
+  return false ;
+}
+//---------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q7. 
+ */
+private static final int HW4G = 12*70+9;
+
+//---------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q8. 
+ */
+public String HW4H( int dayOfweek){
+
+    switch(dayOfweek) {
+      
+        case 1: return "Monday";
+        case 2: return "Tuesday";
+        case 3: return "Wednesday";
+        case 4: return "Thursday";
+        case 5: return "Friday";
+        case 6: return "Saturday";
+        case 7: return "Sunday";
+    }
+    return "meaningless";
+    }
+//---------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q9. 
+ */
+//HW4I() 
+
+//---------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q10. 
+ */
+
+public int HW4J( String a, String b, String c)
+{ 
+  return 5 ; 
+}
+//---------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q11. 
+ */
+
+public int HW4K( )
+{ 
+  
+  return 0 ;
+}
+//---------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q12. 
+ */
+
+/**
+ *  
+ * The broken code is given to the student.  
+ */
+public int HW4L( int array[]) 
+{ 
+  int i = 0; 
+  for ( i = 0; i < array.length; i++ )
+  { 
+    array[i] =  array[i]*2;
+  }
+  return array.length ;
+}
+//---------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q13. 
+ */
+
+public boolean HW4M( int array[ ], int target, int result[])
+{ 
+  boolean found = false ; 
+  
+  return found ;
+}
+
+// END OF ASSESSMENT 
+/* 
+  note there is no question 14. 
+  */ 
