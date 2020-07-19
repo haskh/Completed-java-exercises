@@ -1,0 +1,156 @@
+//---------------------------------------------------------
+void draw()
+{ 
+  background( 255 ,255,255) ; // white 
+  fill( 0 , 0 , 0 ) ; 
+  String errors = Assessment3.getLastErrorMessage(); 
+  if( errors != null ) 
+  { 
+    text(errors, 20, 50);
+  }  
+ int cm = Assessment3.getCurrnetMarks() ; 
+ 
+  text( " Total Marks so far = " + cm +"%", 20  , height - 30 ); 
+} 
+//--------------------------------------------------------------------------
+    
+  
+    /* 
+       To Avoid confusion see question in PDF Questions.
+      Q1  HW3A - here 
+
+    */
+     public float HW3A( float seconds ) 
+    {
+       return 2*51/7+9 ; 
+    } 
+    //--------------------------------------------------------------------------
+     /*   To Avoid confusion see question in PDF Questions.
+       Q2   HW3B 
+     */
+    public float HW3B( float a  ) 
+    { 
+      return a*a; 
+    } 
+    //--------------------------------------------------------------------------
+    /*  To Avoid confusion see question in PDF Questions.
+     Q3 HW3C
+    */
+    public String HW3C() 
+    { 
+      String result = "Happy";
+      int count = 3456;
+     for (int i = 0;i<count;i++){
+       result += " Birthday";
+     }
+     return result;
+    }
+     
+    
+     
+      
+ 
+    //--------------------------------------------------------------------------
+     /*  To Avoid confusion see question in PDF Questions.
+      Q4   *HW3D
+     */
+        public  String HW3D( ArrayList<String> list  ) 
+    {
+     return list.get(0);
+    }
+     
+     //--------------------------------------------------------------------------
+    /*  To Avoid confusion see question in PDF Questions.
+      Q5   HW3E 
+
+    */
+    public int HW3E( ArrayList<Integer> theList  )
+   {
+    return theList.size();
+}
+   
+    //--------------------------------------------------------------------------
+    /*   To Avoid confusion see question in PDF Questions.
+       Q6 HW3F
+    */
+     public  String HW3F( ArrayList<String> list  ) 
+    {
+     return list.get(list.size()-1);
+    }
+   //---------------------------------------------------------------------------
+   /*  To Avoid confusion see question in PDF Questions.
+      Q 7. HW3G 
+   */
+    
+      
+      public String HW3G(ArrayList<String> list){
+  
+    return list.set(3, "Seventy Three");
+    
+}
+    
+   //---------------------------------------------------------------------------
+   /*  To Avoid confusion see question in PDF Questions.
+     Q8. HW3H. 
+   */
+      public ArrayList<String> HW3H (ArrayList <String> list)
+    {
+      list.add("LAST ONE");
+   return list;
+   
+    }
+    //---------------------------------------------------------------------------
+    /*  To Avoid confusion see question in PDF Questions.
+      Q 9.  
+    */
+
+    public String HW3I( float A  , int openCon,  boolean sisterServerHit ) 
+    { 
+        
+        return "SAFE" ;   // not under attack 
+    } 
+     //---------------------------------------------------------------------------
+    /*  To Avoid confusion see question in PDF Questions.
+     Q  10  
+    */
+    public boolean  HW3J( String chatMessages[ ] ) 
+    { 
+     
+       return false ; 
+    }
+    //--------------------------------------------------------------------------
+    /*  To Avoid confusion see question in PDF Questions.
+      Q 11.
+        
+    */
+    public int HW3K( String array [ ] )
+    { 
+        // YOUR CODE HERE. 
+        return -1  ; 
+    }
+ //--------------------------------------------------------------------------
+ /*   To Avoid confusion see question in PDF Questions.
+     Q12 
+    */
+    public int HW3L( ArrayList<String> words )
+    { 
+
+       return -1; 
+    }
+     //---------------------------------------------------------------------------
+    /*  To Avoid confusion see question in PDF Questions.
+     Q 13  
+     */ 
+    
+   // CLASS HERE  HW3MClass  
+    
+   // FUNCTION HERE HW3M
+   
+    //---------------------------------------------------------------------------
+   /*  To Avoid confusion see question in PDF Questions.
+     Q14. 
+     */
+    
+    // CLASS HW3NClass HERE  
+    // function HW3N  here 
+   
