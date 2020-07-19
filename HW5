@@ -1,0 +1,324 @@
+//---------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q1 
+ */
+public float HW5A( ) 
+{
+  return  42/9   ;
+} 
+//---------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q2. 
+ */
+ 
+public float HW5B( float  ounces   )
+{ 
+  return 0.0283*ounces ;
+}
+//--------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q3. 
+ */
+   public boolean  HW5C(float temp)
+    { 
+      if(temp<=-14)
+      {
+        return false;
+      }
+      else
+   {
+          return true;
+      }
+    }
+
+//--------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q4. 
+ */
+public void HW5D( )
+{
+    for( int i = 1 ; i <= 24 ; i++ )
+
+   { 
+
+    
+
+     { 
+
+     Assessment5.loop( i ) ; 
+
+     } 
+
+   }
+
+    Assessment5.loopEnd();
+
+ 
+}
+    
+  //  Assessment5.println( i);
+
+ // Assessment5.loopEnd();
+
+//--------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q5. 
+ */
+/* HW5E(  numbers )*/ 
+  public boolean HW5E(int[] numbers) { 
+
+    for (int i = 0 ; i < numbers.length; i++) {
+        if (numbers[i] < 0 || numbers[i] >= 4)
+            return false;  
+    }
+    return true; 
+}
+//--------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q6. 
+ */
+public boolean HW5F( float  batteryPower, float dustPan    ) 
+{ 
+   
+
+      if( dustPan > 95 || batteryPower < 20 ) {
+        return true; 
+      }
+      return false;
+
+      
+}
+      
+//-------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q7. 
+ */
+public String HW5G ( ArrayList<String> words ) 
+{ 
+
+     return words.get(words.size() / 2);
+}
+
+
+
+//--------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q8. 
+ HW5H 
+*/
+public String  HW5H(String[] words) {
+  
+   return words[words.length / 2];
+}
+
+
+  
+//--------------------------------------------------------------------------
+/**
+Q9
+  This question lets you control the robot.*
+*/
+public void HW5I()
+{ 
+ //Example- robot.forward() ; 
+ //Example- robot.turnRight(); 
+ //Example- robot.dig()   
+ //Example- robot.turnLeft() ;
+ // Loops OK. 
+}
+//---------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ Q10. 
+ */
+public String HW5J( )
+{ 
+  return "Example";
+}
+//-------------------------------------------------------------------------
+/*  To Avoid confusion see question in PDF Questions.
+ 11 
+ */
+/*public  RETURN-SOMETHING-OR-Void HW5K( ARGUMENTS )
+{
+  // WHAT ARE YOU GOING TO TEST IF STATEMENTS? 
+  return 0 ;
+}*/ 
+//-------------------------------------------------------------------------
+/**
+ * Q12  To Avoid confusion see question in PDF Questions.
+ * 
+ */
+/*public boolean HW5L( ) 
+{ 
+  HW5K( ); // now how it work 
+  return true;
+}
+*/ 
+
+// END OF ASSESSMENT 
+/* 
+ note there is no question 14. 
+ */
+//---------------------------------------------------------
+void draw()
+{ 
+  background( 255, 255, 255) ; // white 
+
+  background( 0 ); 
+  drawRobot( ) ;
+
+  fill(255) ; 
+  String errors = Assessment5.getLastErrorMessage(); 
+  if ( errors != null ) 
+  { 
+    text(errors, 20, 20);
+  }  
+  drawDeliveryTime();
+  int cm = Assessment5.getCurrnetMarks() ; 
+  text( " Total Marks so far = " + cm +"%", 20, height - 20 );
+}
+//-----------------------------------------------------------------------------------
+void drawDeliveryTime() 
+{ 
+
+  LocalDateTime now = LocalDateTime.now(); 
+  LocalDateTime delivery =  LocalDateTime.of( 2020, Month.JANUARY, 20, 13, 30, 0); 
+  //.. LocalDateTime delivery =  LocalDateTime.of( 2019, Month.DECEMBER, 7, 15, 55, 0); 
+
+  long diff = SECONDS.between( now, delivery ) ; 
+  boolean late = false ; 
+  if ( diff < 0 ) {  
+    diff = -diff ; 
+    late = true ;
+  } 
+  int days = 0 ; 
+  if ( diff > ( 24*60*60))
+  { 
+    days = (int)diff/ ( 24*60*60); 
+    diff = diff - (days*24*60*60);
+  }
+  int hours = 0 ; 
+  if ( diff > 60*60 ) 
+  { 
+    hours = (int) (diff / ( 60*60)) ; 
+    diff = diff - ( hours*60*60);
+  } 
+  int minutes = 0 ; 
+  if ( diff > 60 ) 
+  { 
+    minutes =  (int) diff/(60) ; 
+    diff = diff -(minutes *60);
+  } 
+  fill( 255 ) ; // white.
+
+  if ( days == 0 ) 
+  { 
+    fill(#E60CEA ); // purpose
+  } 
+
+  String msg = "Time left D:" ; 
+  if ( late == true ) 
+  { 
+    fill( #EA0C53 ) ; 
+    msg = "LATE ! D:" ;
+  } 
+  text( msg + days+" H:"+hours+" M:"+minutes + " S:"+diff, width - 250, 22 ) ;
+} 
+//---------------------------------------------------------
+/* 
+ DON'T MESS WITH THIS CODE. OUT OF BOUNDS. 
+ */
+void drawRobot() 
+{ 
+  worldImage.loadPixels(); 
+  assert world !=null ; 
+  world.draw( worldImage.pixels ) ; //was worldImage.pixel
+  worldImage.updatePixels() ;
+  imageMode(CORNERS);
+  image( worldImage, convertGridHtoScreen(0), convertGridVtoScreen(0), 
+    convertGridHtoScreen(world.kHOZMAX), 
+    convertGridVtoScreen(world.kVERTMAX));
+
+  int hoz = convertGridHtoScreen( robot.getH() ); 
+  int vert = convertGridVtoScreen( robot.getV()); 
+  ellipseMode( CORNER ) ; 
+  fill( 255, 255, 255); 
+  stroke( 0, 0, 0); 
+  strokeWeight( 2 ) ; 
+  ellipse( hoz+3, vert+3, cellSize-6, cellSize-6) ; 
+  fill( 0 ) ; 
+
+  switch( robot.getDirection() ) 
+  { 
+  case 0 : 
+    line( hoz+cellSize/2, vert+cellSize/2, hoz+cellSize/2, vert ) ; 
+    break ; 
+  case 1 : 
+    line( hoz+cellSize/2, vert+cellSize/2, hoz + cellSize, vert+cellSize/2 ) ; 
+    break ;
+  case 2 : 
+    line( hoz+cellSize/2, vert+cellSize/2, hoz+cellSize/2, vert+cellSize ) ;
+    break ;
+  case 3 : 
+    line( hoz+cellSize/2, vert+cellSize/2, hoz, vert+cellSize/2 ) ;  
+    break ;
+  default:  
+  assert false :
+    "IMPOSSIBLE";
+  }
+  fill( #F233D0 ) ; 
+  text( robot.getMessage( ), convertGridHtoScreen(robot.getH())  +3, 
+    convertGridVtoScreen( robot.getV())); 
+  strokeWeight( 1 ) ;
+} 
+//-------------------------------------------------------------------
+void keyReleased() 
+{ 
+  try {
+    if ( key == 'R') 
+    { 
+      println( "RESET"); 
+      world.resetWorld("DAVE".hashCode() + frameCount ); 
+      println( "RESET key"); 
+      return ;
+    } 
+    if ( key == 'l') robot.turnLeft(); 
+    if ( key == 'r') robot.turnRight(); 
+    if ( key == 'f') robot.forward(); 
+    if ( key == 'd') robot.dig();
+  } 
+  catch( Exception e  ) 
+  { 
+    println(e);
+    e.printStackTrace();
+  }
+}
+//--------------------------------------------------------------------------------------------
+int convertGridHtoScreen( int h ) 
+{ 
+  return int( map( h, 0, world.kHOZMAX, cellSize, width - cellSize));
+} 
+
+//--------------------------------------------------------------------------------------------
+int convertGridVtoScreen( int v  ) 
+{ 
+  return  int( map( v, 0, world.kVERTMAX, cellSize, height - cellSize )) ;
+} 
+
+int   cellSize = 20 ; 
+
+
+uk.ac.uk.northumbria.dalton.WorldInterface world; 
+uk.ac.uk.northumbria.dalton.Robot robot ; 
+
+
+PImage worldImage = null  ;
+PFont arial18 ; 
+
+void settings()
+{ 
+  size(1024, 800  ); 
+  noSmooth(); 
+  cellSize = int ( (width-80) / (float) world.kHOZMAX ) ; 
+  worldImage = createImage( world.kHOZMAX, world.kVERTMAX, RGB) ; 
+} 
