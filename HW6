@@ -1,0 +1,225 @@
+ //---------------------------------------------------------
+void draw()
+{ 
+  background( 255, 255, 255) ; // white 
+  fill( 0, 0, 0 ) ; 
+  String errors = Assessment6.getLastErrorMessage(); 
+  if ( errors != null ) 
+  { 
+    text(errors, 20, 50);
+  }  
+  int cm = Assessment6.getCurrnetMarks() ; 
+
+  text( " Total Marks so far = " + cm +"%", 20, height - 30 );
+} 
+    /* 
+       See the PDF 
+    */
+   public float HW6A(  ) 
+{
+  return  ((2*51)/7)+9;
+}
+    //--------------------------------------------------------------------------
+    // HW6B here
+    public float HW6B(float A) 
+{
+  return  PI*A*A;
+}
+    //--------------------------------------------------------------------------
+  class HW6cClass {
+  String FirstName; 
+  String LastName;
+  String StudentID;
+  boolean Marked;
+  int AttendedNWeeks;
+  HW6cClass() {
+    this.FirstName="Jenny";
+    this.LastName="Banks";
+    this.StudentID="WF230230293";
+    this.Marked=true;
+    this.AttendedNWeeks=5;
+  }
+}
+public HW6cClass HW6C( )
+{ 
+  HW6cClass Jenny = new HW6cClass(); 
+  return Jenny ;
+}
+     //--------------------------------------------------------------------------
+     /* Note for this template change Object type to your class HW6dClass name */ 
+   public class HW6dClass {
+  String FirstName;
+  String LastName;
+  String StudentID;
+  float Height;
+  int HatSize;
+}
+public ArrayList<HW6dClass>  HW6D(  )
+{ 
+  ArrayList<HW6dClass> list = new ArrayList<HW6dClass>( ) ;
+  HW6dClass Banks= new HW6dClass();
+  Banks.FirstName="Jenny";
+  Banks.LastName="Banks";
+  Banks.StudentID="230230293";
+  Banks.Height=1.8;
+  Banks.HatSize=8;
+  HW6dClass Rockwood= new HW6dClass();
+  Rockwood.FirstName="Brooklyn";
+  Rockwood.LastName="Rockwood";
+  Rockwood.StudentID="90943049";
+  Rockwood.Height=2.1;
+  Rockwood.HatSize=12;
+  HW6dClass YourName=new  HW6dClass();
+  YourName.FirstName="YourName";
+  YourName.LastName="YourName";
+  YourName.StudentID="330230193";
+  YourName.Height=2.0;
+  YourName.HatSize=12;
+  list.add(Banks);
+  list.add(Rockwood);
+  list.add(YourName);
+  return list;
+}
+    //--------------------------------------------------------------------------
+// YOUR CLASS HERE.
+   class HW6eClass{
+  String ProductName;
+  int number;
+  float price;
+  public float myValuePlusVAT(){
+    float subTotal=number*price;
+    float VAT=subTotal*0.2;
+    return subTotal+VAT;
+  }  
+}
+
+public HW6eClass HW6E( )
+{ 
+  HW6eClass it = new HW6eClass() ;
+  it.ProductName="Cheese";
+  it.number=1;
+  it.price=165;
+ 
+  return it ;
+}
+    //--------------------------------------------------------------------------
+class Common {
+  String title="EMPTY"; 
+  int hoz=3, vert=3;
+  int sizedOpen=3;
+}
+class Button extends Common
+{ 
+  int sizeClosed=3; 
+  float penThickness=3;
+}
+class BurgerMenu extends Common
+{ 
+  int totalWidth=3; 
+  int process=3;
+}
+    
+    //--------------------------------------------------------------------------
+    /* this is a template replace Object with your Common class */ 
+     public Common HW6F() 
+{ 
+  Common it = new Common( ) ; // your class here. 
+  return it ;
+}
+
+    
+    //--------------------------------------------------------------------------
+    class HW6GStarterClass
+{ 
+  // this class represents a record of a file on a drive 
+  private String trackTitle ; 
+  private String album ; 
+  private String artistName ; 
+  private int    trackLength ;
+  private String trackURL ; 
+  private int    numberOfPlays ; 
+  private int    numberOfLikes ; 
+  private int    trackRateing;
+
+  public String getTrackTitle() {
+    return trackTitle;
+  } 
+  public String getAlbum() {
+    return album;
+  } 
+  public String getArtistName() {
+    return artistName;
+  }
+  public int getTrackLength() {
+    return trackLength;
+  }
+  public String getTrackURL() {
+    return trackURL;
+  } 
+  public int getNumberOfPlays() {
+    return numberOfPlays;
+  } 
+  public int getNumberOfLikes() {
+    return numberOfLikes;
+  } 
+  public int getTrackRateing() {
+    return trackRateing;
+  }
+  //setter
+  public void setTrackTitle(String trackTitle) {
+    this.trackTitle= trackTitle;
+  } 
+  public void setAlbum(String album) {
+    this.album= album;
+  } 
+  public void setArtistName(String artistName) {
+    this.artistName= artistName;
+  }
+  public void setTrackLength(int trackLength) {
+    this.trackLength= trackLength;
+  }
+  public void setTrackURL(String trackURL) {
+    this.trackURL= trackURL;
+  } 
+  public void setNumberOfPlays(int numberOfPlays) {
+    this.numberOfPlays= numberOfPlays;
+  } 
+  public void setNumberOfLikes(int numberOfLikes ) {
+    this.numberOfLikes= numberOfLikes;
+  } 
+  public void setTrackRateing(int trackRateing) {
+    this.trackRateing= trackRateing;
+  }
+}
+public HW6GStarterClass  HW6G(  ) 
+{ 
+  HW6GStarterClass  px = new HW6GStarterClass ( ); 
+  return px ;
+}
+     //--------------------------------------------------------------------------
+     /* 
+      Your class HW6HClass here 
+      */
+    //--------------------------------------------------------------------------
+    /* this is a template replace  Object with your class HW6HClass */
+   class HW6HClass implements Assessment6.CW6HInterface {
+  private String message="Submit";
+  int getHeight() {
+    return 40;
+  }
+  int getWidth() {
+    return 80;
+  }
+  String getMessage() {
+    return message;
+  }
+}
+/* this is a template replace  Object with your class HW6HClass */
+public HW6HClass HW6H( )
+{ 
+  return new HW6HClass();
+}
+    //--------------------------------------------------------------------------
+  
+  
+  
